@@ -1,0 +1,41 @@
+{
+    "name": "codewithkyle/read-only",
+    "description": "Adds a read only text field to Craft CMS with click-to-copy functionality.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "read only"
+    ],
+    "support": {
+        "docs": "https://github.com/craft-readonly/read-only/blob/master/README.md",
+        "issues": "https://github.com/craft-readonly/read-only/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kyle Andrews",
+            "homepage": "https://kyleandrews.dev/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "codewithkyle\\readonly\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Read Only",
+        "handle": "read-only",
+        "developer": "Kyle Andrews",
+        "developerUrl": "https://kyleandrews.dev/",
+        "documentationUrl": "https://github.com/craft-readonly/read-only/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/craft-readonly/read-only/master/CHANGELOG.md",
+        "class": "codewithkyle\\readonly\\ReadOnly"
+    }
+}

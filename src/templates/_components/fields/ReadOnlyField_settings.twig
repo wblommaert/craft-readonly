@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Read Only plugin for Craft CMS
+ *
+ * ReadOnlyField Field Settings
+ *
+ * @author    Kyle Andrews
+ * @copyright Copyright (c) 2020 Kyle Andrews
+ * @link      https://kyleandrews.dev/
+ * @package   ReadOnly
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("codewithkyle\\readonly\\assetbundles\\readonly\\ReadOnlyAsset") %}
+
+{{ forms.textField({
+    label: 'Some Attribute',
+    instructions: 'Enter some attribute here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: field['someAttribute']})
+}}
