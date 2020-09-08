@@ -15,12 +15,10 @@
 
 {% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("codewithkyle\\readonly\\assetbundles\\readonly\\ReadOnlyAsset") %}
-
-{{ forms.textField({
-    label: 'Some Attribute',
-    instructions: 'Enter some attribute here.',
-    id: 'someAttribute',
-    name: 'someAttribute',
-    value: field['someAttribute']})
+{{ forms.lightswitchField({
+    label: 'Hide Field',
+    instructions: 'When enabled this field will not be visible in the CP to non-admin users.',
+    id: 'hidden',
+    name: 'hidden',
+    on: field['hidden']})
 }}

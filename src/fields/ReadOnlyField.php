@@ -11,7 +11,6 @@
 namespace codewithkyle\readonly\fields;
 
 use codewithkyle\readonly\ReadOnly;
-use codewithkyle\readonly\assetbundles\readonlyfieldfield\ReadOnlyFieldFieldAsset;
 
 use Craft;
 use craft\base\ElementInterface;
@@ -38,12 +37,8 @@ class ReadOnlyField extends Field
     // Public Properties
     // =========================================================================
 
-    /**
-     * Some attribute
-     *
-     * @var string
-     */
-    public $someAttribute = 'Some Default';
+    /** @var bool */
+    public $hidden;
 
     // Static Methods
     // =========================================================================
@@ -55,7 +50,7 @@ class ReadOnlyField extends Field
      */
     public static function displayName(): string
     {
-        return Craft::t('read-only', 'ReadOnlyField');
+        return Craft::t('read-only', 'Read Only');
     }
 
     // Public Methods
@@ -75,8 +70,8 @@ class ReadOnlyField extends Field
     {
         $rules = parent::rules();
         $rules = array_merge($rules, [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
+            [['hidden'], 'boolean'],
+            [['hidden'], 'default', 'value' => false],
         ]);
         return $rules;
     }
@@ -332,22 +327,9 @@ class ReadOnlyField extends Field
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
-        // Register our asset bundle
-        Craft::$app->getView()->registerAssetBundle(ReadOnlyFieldFieldAsset::class);
-
         // Get our id and namespace
         $id = Craft::$app->getView()->formatInputId($this->handle);
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
-
-        // Variables to pass down to our field JavaScript to let it namespace properly
-        $jsonVars = [
-            'id' => $id,
-            'name' => $this->handle,
-            'namespace' => $namespacedId,
-            'prefix' => Craft::$app->getView()->namespaceInputId(''),
-            ];
-        $jsonVars = Json::encode($jsonVars);
-        Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').ReadOnlyReadOnlyField(" . $jsonVars . ");");
 
         // Render the input template
         return Craft::$app->getView()->renderTemplate(
@@ -358,6 +340,7 @@ class ReadOnlyField extends Field
                 'field' => $this,
                 'id' => $id,
                 'namespacedId' => $namespacedId,
+                'hidden' => $this->hidden
             ]
         );
     }
