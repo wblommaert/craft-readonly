@@ -1,6 +1,6 @@
 # Read Only Field
 
-This plugins adds a simple read only text field with basic click-to-copy functionality. When creating a field you can choose to hide the field from everyone or everyone except Admins and you can control if Admins are allowed override the read only status.
+This plugins adds a simple read only text field with basic click-to-copy functionality. When creating a field you can choose to hide the field from everyone or everyone except Admins. You can also control if Admins are allowed to edit the field value.
 
 ## Requirements
 
