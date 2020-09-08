@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
-- Read Only field
+- Read Only field type
 - ability to hide field
+    - can be hidden from everyone
+    - can be hidden from everyone except admins
 - ability to allow admin edits
