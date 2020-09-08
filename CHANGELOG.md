@@ -8,4 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
-- Initial release
+- Read Only field
+- ability to hide field
+- ability to allow admin edits

@@ -17,10 +17,18 @@
 
 {{ forms.lightswitchField({
     label: 'Hide Field',
-    instructions: 'When enabled this field will not be visible in the CP to non-admin users.',
+    instructions: 'When enabled this field will not be visible in the CP.',
     id: 'hidden',
     name: 'hidden',
     on: field['hidden']})
+}}
+
+{{ forms.lightswitchField({
+    label: 'Visible To Admins',
+    instructions: 'When enabled this field will always be visible to Admins.',
+    id: 'visibleToAdmins',
+    name: 'visibleToAdmins',
+    on: field['visibleToAdmins']})
 }}
 
 {{ forms.lightswitchField({

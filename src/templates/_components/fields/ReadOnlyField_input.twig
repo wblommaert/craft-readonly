@@ -28,11 +28,16 @@
 })
 }}
 
+{% set isHidden = hidden %}
+{% if isHidden and visibleToAdmins and currentUser.admin %}
+        {% set isHidden = false %}
+{% endif %}
+
 {% if readOnly %}
         <style>
                 #fields-{{ name }}-field{
                         margin-bottom: 0;
-                        {{ hidden ? 'display: none;' }}
+                        {{ isHidden ? 'display: none;' }}
                 }
                 [name="{{ name }}"]{
                         cursor: copy;

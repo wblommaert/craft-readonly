@@ -43,6 +43,9 @@ class ReadOnlyField extends Field
     /** @var bool */
     public $adminEdits;
 
+    /** @var bool */
+    public $visibleToAdmins;
+
     // Static Methods
     // =========================================================================
 
@@ -63,8 +66,8 @@ class ReadOnlyField extends Field
     {
         $rules = parent::rules();
         $rules = array_merge($rules, [
-            [['hidden', 'adminEdits'], 'boolean'],
-            [['hidden', 'adminEdits'], 'default', 'value' => false],
+            [['hidden', 'adminEdits', 'visibleToAdmins'], 'boolean'],
+            [['hidden', 'adminEdits', 'visibleToAdmins'], 'default', 'value' => false],
         ]);
         return $rules;
     }
@@ -112,6 +115,7 @@ class ReadOnlyField extends Field
                 'namespacedId' => $namespacedId,
                 'hidden' => $this->hidden,
                 'adminEdits' => $this->adminEdits,
+                'visibleToAdmins' => $this->visibleToAdmins,
             ]
         );
     }
