@@ -54,6 +54,14 @@
                         transition: all 75ms ease-in-out;
                         filter: brightness(0.95);
                 }
+                @keyframes readonlyNotification{
+                        from{
+                                opacity: 1;
+                        }
+                        to{
+                                opacity: 0;
+                        }
+                }
         </style>
         <script>
                 var {{ name }} = document.body.querySelector('[name="{{ name }}"]');
@@ -67,6 +75,17 @@
                                         document.execCommand('copy');
                                         {{ name }}.setSelectionRange(0,0);
                                 }
+                                var notificationContainer = document.body.querySelector('#notifications');
+                                notificationContainer.innerHTML = "";
+                                setTimeout(()=>{
+                                        notificationEl = document.createElement('div');
+                                        notificationContainer.append(notificationEl);
+                                        notificationEl.className = 'notification notice';
+                                        notificationEl.innerHTML = "Copied to clipboard";
+                                        notificationEl.style.opacity = '1';
+                                        notificationEl.style.display = 'block';
+                                        notificationEl.style.animation = 'readonlyNotification 300ms 2000ms ease-out forwards';
+                                }, 150);
                         });
                 }
         </script>

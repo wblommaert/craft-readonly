@@ -2,7 +2,7 @@
     "name": "codewithkyle/read-only",
     "description": "Adds a read only text field to Craft CMS with click-to-copy functionality.",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "craft",
         "cms",
