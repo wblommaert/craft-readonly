@@ -36,7 +36,7 @@ use yii\base\Event;
  * @since     1.0.0
  *
  */
-class ReadOnly extends Plugin
+class ReadOnlyPlugin extends Plugin
 {
     // Static Properties
     // =========================================================================

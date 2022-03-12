@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.2 - 2021-03-12
+
+### Fixed
+
+- PHP 8 compatability issues ([#2](https://github.com/codewithkyle/craft-readonly/issues/2))
+
 ## 1.0.1 - 2020-09-10
 
 ### Added
