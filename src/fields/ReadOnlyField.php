@@ -62,7 +62,7 @@ class ReadOnlyField extends Field
     // Public Methods
     // =========================================================================
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules = array_merge($rules, [
@@ -72,22 +72,22 @@ class ReadOnlyField extends Field
         return $rules;
     }
 
-    public function getContentColumnType(): string
+    public function getContentColumnType(): array|string
     {
         return Schema::TYPE_STRING;
     }
 
-    public function normalizeValue($value, ElementInterface $element = null)
+    public function normalizeValue(mixed $value, ?\craft\base\ElementInterface $element = null): mixed
     {
         return $value;
     }
 
-    public function serializeValue($value, ElementInterface $element = null)
+    public function serializeValue(mixed $value, ?\craft\base\ElementInterface $element = null): mixed
     {
         return parent::serializeValue($value, $element);
     }
 
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         // Render the settings template
         return Craft::$app->getView()->renderTemplate(
@@ -98,7 +98,7 @@ class ReadOnlyField extends Field
         );
     }
 
-    public function getInputHtml($value, ElementInterface $element = null): string
+    public function getInputHtml(mixed $value, ?\craft\base\ElementInterface $element = null): string
     {
         // Get our id and namespace
         $id = Craft::$app->getView()->formatInputId($this->handle);
