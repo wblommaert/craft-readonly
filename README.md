@@ -4,7 +4,7 @@ This plugins adds a simple read only text field with basic click-to-copy functio
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0 or later.
+This plugin requires Craft CMS 4.0.0 or later.
 
 ## Installation
 
